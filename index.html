@@ -31,9 +31,14 @@
             .body-content {
                 height: 100%;
                 display: flex;
-                flex-direction: column;
+                /* flex-direction: column;
+                 */
+                flex-wrap: wrap;
+                justify-content: space-around;
+                align-items: space-around;
                 flex: 1;
                 background-color: black;
+                overflow: hidden;
             }
             .bg-img {
                 height: 600px;
@@ -48,8 +53,16 @@
             .img-box {
                 width: 200px;
                 height: 200px;
+                display: flex;
+                align-items: center;
                 margin: 10px;
                 border: pink solid 5px;
+            }
+            .img-item-w {
+                width: 100%;
+            }
+            .img-item-h {
+                height: 100%;
             }
         </style>
     </head>
@@ -57,9 +70,12 @@
     <body>
         <div id="app" class="app" onclick="playAction()">
             <div id="bg-box" class="body-content">
-                <div class="bg-box">
+                <!-- <div class="bg-box">
                     <img id="bg-img" class="bg-img" src="/images/bg1.jpg" alt="" />
-                </div>
+                </div> -->
+                <!-- <div class="img-box" id='img-box'>
+                    <img class="img-item" src="/images/bg1.jpg" alt="" />
+                </div> -->
             </div>
 
             <div id="bb37.html" class="avbox"></div>
@@ -114,12 +130,30 @@
                             if (bgindex > 3) {
                                 bgindex = 1;
                             }
-                            bgimg.src = `./images/bg${bgindex}.jpg`;
+                            bgimg.src = `/images/bg${bgindex}.jpg`;
                             changeImg();
                         }, 5000);
                     }
                 };
-                BgImg();
+
+                for (let obj of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14]) {
+                    imgiframe = 'img-item-w';
+                    $('#bg-box').append(`<div id='img-box${obj}' class="img-box">
+                    <img class="${imgiframe}" src="/images/bg1.jpg" alt="">
+                </div>`);
+                }
+
+                function animateImg() {
+                    setTimeout(() => {
+                        let index = Math.round(Math.random() * 14);
+                        // let index = Math.round(0.3);
+                        console.log(index);
+                        $(`#img-box${index}`).addClass('animated rotateIn');
+                        animateImg();
+                    }, 2000);
+                }
+                animateImg();
+                // BgImg();
             });
         </script>
     </body>
