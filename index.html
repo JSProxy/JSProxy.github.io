@@ -1,640 +1,126 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+    <head>
+        <meta name="generator" content="Hexo 3.8.0" />
+        <meta charset="utf-8" />
+        <meta name="author" content="张峰,13923734790@163.com" />
+        <!-- <title>不负遇见</title> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="keywords" content="2019" />
+        <meta name="description" content="木头人也有情" />
 
-  
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  <meta name="author" content="张峰, yuanxin.me@gmail.com">
-  
-  
-  
-  <title>jsProxy</title>
+        <link rel="icon" href="/images/favicon.ico" />
+        <link rel="stylesheet" href="./css/animate.css" />
+        <link href="//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet" />
+        <script src="//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+        <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <style>
+            .app {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                display: flex;
+                /* background-color: red; */
+            }
+            .avbox {
+                width: 300px;
+                height: 100%;
+            }
+            .body-content {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                background-color: black;
+            }
+            .bg-img {
+                height: 600px;
+            }
+            .bg-box {
+                position: absolute;
+                top: 10px;
+                right: 320px;
+                left: 10px;
+                text-align: center;
+            }
+            .img-box {
+                width: 200px;
+                height: 200px;
+                margin: 10px;
+                border: pink solid 5px;
+            }
+        </style>
+    </head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <body>
+        <div id="app" class="app" onclick="playAction()">
+            <div id="bg-box" class="body-content">
+                <div class="bg-box">
+                    <img id="bg-img" class="bg-img" src="./images/bg1.jpg" alt="" />
+                </div>
+            </div>
 
-  
-    <meta name="keywords" content="Hexo, theme-bmw">
-  
+            <div id="bb37.html" class="avbox"></div>
+        </div>
+        <script async>
+            var av = '';
+            (function() {
+                let playerTimer = setInterval(function() {
+                    if (!window.APlayer) {
+                        return;
+                    }
+                    av = new APlayer({
+                        container: document.getElementById('bb37.html'),
+                        theme: '#e96900',
+                        listFolded: false,
+                        audio: [
+                            { name: '浮生', artist: 'AniFace', url: './AV/浮生.mp3', cover: '//p2.music.126.net/mhWnNBXzrY83dNWJ6GDGwg==/109951163872080254.jpg?param=130y130' },
+                            { name: '爱情', artist: 'AniFace', url: './AV/爱江山更爱美人.mp3', cover: '//p2.music.126.net/fsXjbojiD5IisEoK__NfHg==/109951163462214000.jpg?param=130y130' },
+                            { name: '爱江山更爱美人', artist: 'AniFace', url: './AV/爱情.mp3', cover: '//p2.music.126.net/fsXjbojiD5IisEoK__NfHg==/109951163462214000.jpg?param=130y130' },
+                        ],
+                    });
+                    clearInterval(playerTimer);
+                }, 10);
+            })();
 
-  <script>
-    console.log('\n%c Hexo-theme-bmw v4.0 ' + '%c 🎉 https://github.com/dongyuanxin/theme-bmw 🎉\n' + '\n%c View demo online ' + '%c 🔍 https://godbmw.com/ 🔍  \n' , 'color: #fadfa3; background: #030307; padding:3px 0;', '', 'color: #fadfa3; background: #030307; padding:3px 0;', '');
-  </script>
-
-  
-    <meta name="description" content="web前端，移动端，技术博客">
-  
-
-  
-
-  
-    <link rel="icon" href="/images/favicon.ico">
-    <link rel="apple-touch-icon" href="/images/touch-icon.png">
-  
-
-  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/base.css">
-<link rel="stylesheet" href="/icon/iconfont.css">
-<link rel="stylesheet" href="/css/github-markdown.css">
-<link rel="stylesheet" href="/css/highlight.css">
-
-  <script src="/js/util.js"></script>
-<script src="/js/valine.min.js"></script>
-
-  
-
-  
-    <link href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js" async></script>
-  
-
-  
-    <link href="https://cdn.bootcss.com/social-share.js/1.0.16/css/share.min.css" rel="stylesheet">
-  
-  
-  <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js" async></script>
-  
-  
-
-</head>
-
-  <body>
-
-    
-
-    <div id="app">
-
-      <div class="header-wrap">
-  <header>
-    <div class="site-brand">
-      <div class="site-title">
-        <a href="/">JSProxy.io</a>
-      </div>
-    </div>
-    <nav class="site-navigation">
-      <ul class="nav-menu">
-      
-        <li class="nav-item" data-path="/">
-          
-            <a href="/" target="_self">
-              主页
-            </a>
-          
-        </li>
-      
-        <li class="nav-item" data-path="/archives/">
-          
-            <a href="/archives/" target="_self">
-              归档
-            </a>
-          
-        </li>
-      
-        <li class="nav-item" data-path="/categories/">
-          
-            <a href="/categories/" target="_self">
-              分类
-            </a>
-          
-        </li>
-      
-        <li class="nav-item" data-path="/tags/">
-          
-            <a href="/tags/" target="_self">
-              标签
-            </a>
-          
-        </li>
-      
-        <li class="nav-item" data-path="/friends/">
-          
-            <a href="/friends/" target="_self">
-              友链
-            </a>
-          
-        </li>
-      
-        <li class="nav-item" data-path="/about/">
-          
-            <a href="/about/" target="_self">
-              关于
-            </a>
-          
-        </li>
-      
-        <li class="nav-item" data-path>
-          
-            <a href="javascript:void(0);" v-else>抓到我</a>
-            <ul class="nav-menu--dropdown">
-              
-                <li>
-                  <a href="https://www.baidu.com" target="_blank">
-                    百度
-                  </a>
-                </li>
-              
-            </ul>
-          
-        </li>
-      
-      </ul>
-    </nav>
-    <i class="iconfont icon-menu"></i>
-  </header>
-</div>
-
-<script>
-  let links = document.querySelectorAll('.nav-item');
-  for(let link of links){
-    let childrenLink = link.querySelector('ul');
-    link.addEventListener('mouseenter', () => {
-      if(childrenLink) {
-        childrenLink.className = "nav-menu--dropdown active";
-      }
-    })
-    link.addEventListener('mouseleave', () => {
-      if(childrenLink) {
-        childrenLink.className = "nav-menu--dropdown";
-      }
-    })
-  }
-  let rootRealPath = getRealPath(window.location.pathname, true);
-  for(let link of links) {
-    let linkPath = link.getAttribute("data-path");
-    if(linkPath && getRealPath(linkPath, true) === rootRealPath) {
-      link.className = "nav-item hover";
-    }
-  }
-
-  let iconMenu = document.querySelector("i.iconfont.icon-menu"),
-    iconMenuClicked = false;
-  let navDOM = document.querySelector("nav.site-navigation");
-  iconMenu.addEventListener("click", () => {
-    iconMenuClicked 
-      ? navDOM.className = "site-navigation active"
-      : navDOM.className = "site-navigation";
-    iconMenuClicked = !iconMenuClicked;
-  })
-</script>
-
-      
-<div class="container home-index">
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/lucky/accf.html">
-        <span>微信授权和前端config</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2019-05-07
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2019-05-07
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/wx/">
-            wx
-          </a>
-        </span>
-      
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <blockquote>
-<p><a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421140842" target="_blank" rel="noopener">微信开发文档</a><br></p></blockquote>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/wx/">
-              wx
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/wx/">
-                  #wx
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/lucky/9f6b.html">
-        <span>正则表达式</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2019-04-13
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2019-04-13
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/regExp/">
-            regExp
-          </a>
-        </span>
-      
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <p>有时间每天巩固一下薄弱的知识=&gt;正则表达式<br></p>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/regExp/">
-              regExp
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/regExp/">
-                  #regExp
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/lucky/2a82.html">
-        <span>hexo常用插件一</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2019-04-13
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2019-04-13
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/hexo/">
-            hexo
-          </a>
-        </span>
-      
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <blockquote>
-<p>Failure is the fog through which we glimpse triumph.<br>失败是迷雾，穿过它，我们就可以瞥见光明。 ——《钢铁侠》</p>
-</blockquote>
-<p>hexo中 image插件,abbrlink插件,admin插件使用教程</p>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/hexo/">
-              hexo
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/hexo/">
-                  #hexo
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/lucky/bb37.html">
-        <span>hello hexoTemplate</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2019-04-12
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2019-04-12
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/hexo/">
-            hexo
-          </a>
-        </span>
-      
-      
-    </div>
-    
-      <div id="bb37.html" style="margin: 4rem 2px -1rem"></div>
-<script async>
-  (function(){
-    let playerTimer = setInterval(function(){
-      if(!window.APlayer){
-        return
-      }
-
-      new APlayer({
-        container: document.getElementById('bb37.html'),
-        theme: '#e96900',
-        listFolded: false,
-        audio: [{"name":"Where are you","artist":"AniFace","url":"//music.163.com/song/media/outer/url?id=453843751.mp3","cover":"//p1.music.126.net/AUfXMljLBgB3PBV731IzRg==/109951162857118370.jpg?param=130y130"},{"name":"END THEME","artist":"天門","url":"http://music.163.com/song/media/outer/url?id=528306.mp3","cover":"//p1.music.126.net/1sw_ptPeI_GNm58VBW1udQ==/2504687488135369.jpg?param=130y130"}]
-      });
-      
-      clearInterval(playerTimer)
-    }, 10);
-  })()
-</script>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <blockquote>
-<p>Be kind, for everyone you meet is fighting a hard battle.<br>善待你遇到的每一个人，因为他们都在为人生奋斗。 ——柏拉图</p>
-</blockquote>
-<p>hexo 文章基础模板<br></p>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/hexo/">
-              hexo
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/hexo/">
-                  #hexo
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-    </div>
-  </div>
-  
-
-  <nav class="page-navigation">
-    
-    
-  </nav>
-
-   
-</div>
-
-
-      <footer>
-  <p class="site-info">
-    博客已运行<span id="time-to-now"></span><span class="my-face">(●'◡'●)ﾉ♥</span>
-    <br>
-    Theme - <a href="https://github.com/dongyuanxin/theme-bmw">BMW</a> | Made With 💗 | Powered by <a href="https://godbmw.com/">GodBMW</a>
-    <br>
-    
-  </p>
-</footer>
-
-
-
-<script>
-const timeToNowDOM = document.querySelector("#time-to-now");
-const startTimestamp = new Date(2019, 3, 13).getTime();
-
-const updateTimeStr = () => {
-  let offset = parseInt(
-      (new Date().getTime() - startTimestamp) / 1000,
-      10
-    ),
-    day = Math.floor(offset / 86400),
-    hour = Math.floor((offset % 86400) / 3600),
-    minute = Math.floor(((offset % 86400) % 3600) / 60),
-    second = Math.floor(((offset % 86400) % 3600) % 60);
-  timeToNowDOM.innerHTML =
-    day + "天" + hour + "小时" + minute + "分钟" + second + "秒";
-  setTimeout(updateTimeStr, 500);
-}
-
-setTimeout(updateTimeStr, 500);
-</script>
-
-
-      <div class="back-to-top hidden">
-  <span>
-    <i class="iconfont icon-60"></i><span></span>%
-  </span>
-</div>
-
-<script>
-const updateIconToTop = percent => {
-  let dom = document.querySelector(".back-to-top span span");
-  dom.innerText = percent;
-  if(percent < 1) {
-    document.querySelector(".back-to-top").className = "back-to-top hidden";
-  } else {
-    document.querySelector(".back-to-top").className = "back-to-top";
-  }
-}
-
-const handleScoll = () => {
-  let isRunning = false;
-  return () => {
-    if (isRunning) return;
-    isRunning = true;
-    window.requestAnimationFrame(timestamp => {
-      let scrollTop =
-          document.documentElement.scrollTop || document.body.scrollTop,
-        scrollHeight =
-          document.documentElement.scrollHeight ||
-          document.body.scrollHeight,
-        clientHeight =
-          document.documentElement.clientHeight ||
-          document.body.clientHeight;
-      isRunning = false;
-      if (scrollTop <= 1) {
-        updateIconToTop(0);
-        return;
-      }
-      if (scrollTop + clientHeight >= scrollHeight) {
-        updateIconToTop(100);
-      } else {
-        updateIconToTop(parseInt(
-          100 * scrollTop / (scrollHeight - clientHeight),
-          10
-        ));
-      }
-    });
-  };
-}
-
-const backToTop = () => {
-  let scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop,
-    delay = 10,
-    time = 200;
-  if (scrollTop <= 20) {
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    return;
-  }
-  let step = Math.ceil(scrollTop * delay / time);
-  let timer = setInterval(() => {
-    scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop;
-    if (scrollTop - step <= 0) {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-      clearInterval(timer);
-    } else {
-      document.documentElement.scrollTop = scrollTop - step;
-      document.body.scrollTop = scrollTop - step;
-    }
-  }, delay);
-}
-
-document.addEventListener("scroll", handleScoll(), false);
-
-document.querySelector(".back-to-top").addEventListener("click", backToTop, false);
-
-</script>
-
-    </div>
-
-    
-      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
-<script>
-  (() => {
-    const mathjaxConfig = {
-      showProcessingMessages: false, //关闭js加载过程信息
-      messageStyle: "none", //不显示信息
-      jax: ["input/TeX", "output/HTML-CSS"],
-      tex2jax: {
-        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
-        displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
-        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
-      },
-      "HTML-CSS": {
-        availableFonts: ["STIX", "TeX"], //可选字体
-        showMathMenu: false //关闭右击菜单显示
-      }
-    }
-
-    let mathjaxInterval = setInterval(() => {
-      if(!window.MathJax){
-        return;
-      }
-      window.MathJax.Hub.Config(mathjaxConfig)
-      window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
-
-      clearInterval(mathjaxInterval)
-    }, 10)    
-  })()
-</script>
-    
-
-    <script src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js" async></script>
-<script async>
-  let fancyTimer = setInterval(function(){
-    if(!window.$){
-      return;
-    }
-    $(document).ready(function() {
-      $(".post img").each(function () {
-        if($(this).parent().get(0).tagName.toLowerCase() === "a") {
-          return;
-        }
-        // $(this).attr("data-fancybox", "gallery"); // if you add 'data-fancybox', img will display after showed
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "gallery");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      });
-      
-      clearInterval(fancyTimer);
-    });
-  }, 10);
-</script>
-
-    
-  </body>
-
+            var isPlay = false;
+            document.addEventListener('keyup', function(event) {
+                console.log('ssss');
+                if (!isPlay) {
+                    av.play();
+                    console.log('xxxx');
+                    isPlay = true;
+                }
+            });
+            function playAction() {
+                console.log('ssss');
+                if (!isPlay) {
+                    av.play();
+                    console.log('xxxx');
+                    isPlay = true;
+                }
+            }
+            $(function() {
+                var BgImg = function() {
+                    var bgimg = document.getElementById('bg-img');
+                    var bgindex = 1;
+                    changeImg();
+                    function changeImg() {
+                        setTimeout(() => {
+                            $('#bg-img').addClass('animated bounce');
+                            bgindex += 1;
+                            if (bgindex > 3) {
+                                bgindex = 1;
+                            }
+                            bgimg.src = `./images/bg${bgindex}.jpg`;
+                            changeImg();
+                        }, 5000);
+                    }
+                };
+                BgImg();
+            });
+        </script>
+    </body>
 </html>
