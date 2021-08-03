@@ -1,160 +1,275 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta name="generator" content="Hexo 3.8.0" />
-        <meta charset="utf-8" />
-        <meta name="author" content="张峰,13923734790@163.com" />
-        <!-- <title>不负遇见</title> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-        <meta name="keywords" content="2019" />
-        <meta name="description" content="木头人也有情" />
+<html lang="en">
 
-        <link rel="icon" href="/images/favicon.ico" />
-        <link rel="stylesheet" href="/css/animate.css" />
-        <link href="//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css" rel="stylesheet" />
-        <script src="//cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
-        <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-        <style>
-            .app {
-                position: absolute;
-                top: 0px;
-                left: 0px;
-                right: 0px;
-                bottom: 0px;
-                display: flex;
-                /* background-color: red; */
-            }
-            .avbox {
-                width: 300px;
-                height: 100%;
-            }
-            .body-content {
-                height: 100%;
-                display: flex;
-                /* flex-direction: column;
-                 */
-                flex-wrap: wrap;
-                justify-content: space-around;
-                align-items: space-around;
-                flex: 1;
-                background-color: black;
-                overflow: hidden;
-            }
-            .bg-img {
-                height: 600px;
-            }
-            .bg-box {
-                position: absolute;
-                top: 10px;
-                right: 320px;
-                left: 10px;
-                text-align: center;
-            }
-            .img-box {
-                width: 200px;
-                height: 200px;
-                display: flex;
-                align-items: center;
-                margin: 10px;
-                border: pink solid 5px;
-            }
-            .img-item-w {
-                width: 100%;
-            }
-            .img-item-h {
-                height: 100%;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>张峰的个人简历</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal-default-theme.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.0/remodal.min.js"></script> -->
+    <link rel="stylesheet" href="static/css/remodal.css">
+    <link rel="stylesheet" href="static/css/remodal-default-theme.min.css">
+    <script src="static/js/script.js/jquery.min.js"></script>
+    <script src="static/js/script.js/remodal.min.js"></script>
+    <script src="static/js/script.js"></script>
+</head>
 
-    <body>
-        <div id="app" class="app" onclick="playAction()">
-            <div id="bg-box" class="body-content">
-                <!-- <div class="bg-box">
-                    <img id="bg-img" class="bg-img" src="/images/bg1.jpg" alt="" />
+<body>
+    <div class="container" id="cv">
+        <div class="side">
+            <div class="me">
+                <img class="portrait" src="static/image/portrait.png" alt="">
+                <!-- <div class="remodal remodal-img" data-remodal-id="portrait-modal">
+                    <h3>请输入图片URL地址：</h3>
+                    <br/>
+                    <input type="text" id="avatar-url">
+                    <button data-remodal-action="confirm" class="remodal-confirm">确定</button>
                 </div> -->
-                <!-- <div class="img-box" id='img-box'>
-                    <img class="img-item" src="/images/bg1.jpg" alt="" />
-                </div> -->
+                <h1 id="username">张峰</h1>
+                <h4 id="persona-tag"> web前端 / 移动端 / 互联网</h4>
             </div>
-
-            <div id="bb37.html" class="avbox"></div>
+            <div class="profile info-unit">
+                <h2 class="info-header"><i class="iconfont icon-person"></i> <span class="info-title">基本信息</span></h2>
+                <hr>
+                <ul class="info-list">
+                    <li>
+                        <label class="left-label">姓名</label><span class="label-value">张峰</span>
+                    </li>
+                    <li>
+                        <label class="left-label">学历</label><span class="label-value">专科</span>
+                    </li>
+                    <li>
+                        <label class="left-label">毕业院校</label><span class="label-value">江西科技师范大学</span>
+                    </li>
+                    <li>
+                        <label class="left-label">专业</label><span class="label-value">数控编程</span>
+                    </li>
+                    <li>
+                        <label class="left-label">毕业年份</label><span class="label-value">2015</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact info-unit">
+                <h2 class="info-header"><i class="iconfont icon-call"></i> <span class="info-title">联系方式</span></h2>
+                <hr>
+                <ul class="info-list">
+                    <li>
+                        <label class="left-label">手机</label><span class="label-value">13923734790</span>
+                    </li>
+                    <li>
+                        <label class="left-label">邮箱</label><span class="label-value">13923734790@163.com</span>
+                    </li>
+                    <li>
+                        <label class="left-label">Github</label><span class="label-value">JSProxy.github.io</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="skill info-unit">
+                <h2 class="info-header"><i class="iconfont icon-star"></i> <span class="info-title">开发过的内容</span></h2>
+                <hr>
+                <ul class="progress-list">
+                    <li>
+                        <label class="left-label">web移动端</label>
+                        <progress value="80" max="100"></progress>
+                    </li>
+                    <li>
+                        <label class="left-label">webpc端</label>
+                        <progress value="80" max="100"></progress>
+                    </li>
+                    <li>
+                        <label class="left-label">Hybrid APP</label>
+                        <progress value="80" max="100"></progress>
+                    </li>
+                    <li>
+                        <label class="left-label">小程序</label>
+                        <progress value="80" max="100"></progress>
+                    </li>
+                    <li>
+                        <label class="left-label">app端</label>
+                        <progress value="80" max="100"></progress>
+                    </li>
+                </ul>
+            </div>
+            <div class="stack info-unit">
+                <h2 class="info-header"><i class="iconfont icon-build"></i> <span class="info-title">技术简介</span></h2>
+                <hr>
+                <ul class="stack-list">
+                    <li>
+                        <label class="left-label">主要技术栈</label><span
+                            class="label-value">javaScript、ES6、ts、scss、jQuery、socket、vue、vuex、Nuxt.js、webpack、uniapp</span>
+                    </li>
+                    <li>
+                        <label class="left-label">其他技术的涉猎</label><span
+                            class="label-value">ios,react,Node.js、Express、Koa2、MongoDB、Nginx</span>
+                    </li>
+                    <li>
+                        <label class="left-label">技术介绍</label><span class="label-value">
+                            1.有一定的项目管理能力、可以独立完成项目的开发。<br />
+                        </span>
+                        <!-- 1.对前端知识有比较全面的认识。<br />
+                        3.微信公众号、支付宝微信小程序、admin后台管理系统、uniapp社交app的开发,积分商城Hybrid APP的开发,<br /> -->
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="code info-unit">
+                <h2 class="info-header"><i class="iconfont icon-weixin"></i> <span class="info-title">个人简介</span></h2>
+                <hr>
+                <div class="weixin">
+                    <img src="static/image/weixin.png" alt="">
+                </div>
+            </div> -->
+            <div class="aboutme info-unit right-paragraph">
+                <h2 class="info-header"><i class="iconfont icon-flower"></i> <span class="info-title">自我评价</span></h2>
+                <hr>
+                <p>
+                    1.为人善良，有责任心
+                    </br>
+                    2.对新技术充满热情，愿意花时间，花精力，花金钱去提升自己的技术
+                    </br>
+                    3.有比较全面的前端技术栈
+                </p>
+            </div>
         </div>
-        <script async>
-            var av = '';
-            (function() {
-                let playerTimer = setInterval(function() {
-                    if (!window.APlayer) {
-                        return;
-                    }
-                    av = new APlayer({
-                        container: document.getElementById('bb37.html'),
-                        theme: '#e96900',
-                        listFolded: false,
-                        audio: [
-                            { name: '浮生', artist: 'AniFace', url: '/AV/浮生.mp3', cover: '//p2.music.126.net/mhWnNBXzrY83dNWJ6GDGwg==/109951163872080254.jpg?param=130y130' },
-                            // { name: '爱情', artist: 'AniFace', url: './AV/爱江山更爱美人.mp3', cover: '//p2.music.126.net/fsXjbojiD5IisEoK__NfHg==/109951163462214000.jpg?param=130y130' },
-                            // { name: '爱江山更爱美人', artist: 'AniFace', url: '/AV/爱情.mp3', cover: '//p2.music.126.net/fsXjbojiD5IisEoK__NfHg==/109951163462214000.jpg?param=130y130' },
-                        ],
-                    });
-                    clearInterval(playerTimer);
-                }, 10);
-            })();
+        <div class="main">
+            <div class="trophy info-unit">
+                <h2 class="info-header"><i class="iconfont icon-trophy"></i> <span class="info-title">个人技术亮点</span></h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>开发项目涉及比较全面</h3>
+                        <p>
+                            1.微信公众号h5开发、微信小程序
+                            </br>
+                            2.支付宝小程序、支付宝刷脸设备小程序
+                            </br>
+                            3.pc后台管理系统
+                            </br>
+                            4.混合app 和uniapp 的开发
+                        </p>
+                    </li>
+                    <li>
+                        <h3>蓝牙通信技术的掌握</h3>
+                        <p>
+                            使用蓝牙通信技术、实现无人售货机的、售卖功能和充电功能
+                            </br>
+                            使用蓝牙通信技术、实现植物灯的群控功能
+                            </br>
+                        </p>
+                    </li>
+            </div>
+            <div class="work info-unit right-list">
+                <h2 class="info-header"><i class="iconfont icon-work"></i> <span class="info-title">工作经历</span></h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>深圳市启点数字科技有限公司-前端开发工程师</h3>
+                        <h4>2019.03-2021.08</h4>
+                        <p>
+                            公司业务：涉及台卡支付，刷脸支付，酒店无人售货机，酒吧ktv电子烟无人售货机
+                            </br>
+                            我主要负责公司所有项目：代理端、商户端、pc商户端、小程序用户端、支付宝刷脸支付程序、等等等应用开发维护
+                        </p>
+                    </li>
+                    <li>
+                        <h3>深圳市利鑫云端科技有限公司-ios工程师</h3>
+                        <h4>2015.11-2018.07</h4>
+                        <p>
+                            公司业务：主要是做IOS马甲包的上架审核，和公司系统的售卖。
+                            </br>
+                            负责公司的原生app和webApp的开发
+                        </p>
+                    </li>
+                </ul class="experience-list">
+            </div>
+            <div class="project info-unit right-list">
+                <h2 class="info-header"><i class="iconfont icon-project"></i> <span class="info-title">项目介绍</span></h2>
+                <hr>
+                <ul class="experience-list">
+                    <li>
+                        <h3>香蕉说-支付宝和微信小程序</h3>
+                        <p>
+                            使用场景：使用了我们公司的香蕉说无人售货机的酒店、扫描设备二维码可以进入小程序、然后体验酒店各种服务功能。
+                            </br>
+                            </br>
+                            主要功能：可以购买设备内部的成人计生用品、和一次性浴巾商品、可以有线充电、可以快捷连接酒店wifi,可以购买酒店线上商城的商品、可以预约开发票、预约清洁服务、深圳用户可以有航班服务、接入了美团、去哪儿、携程、飞猪的酒店可以使用好评返现功能。
+                            </br>
+                            </br>
+                            主要技术：vue、vuex 蓝牙通信技术、websocket、es6、node.js、uview-ui、mpvue迁移到uniapp
+                            <br />
+                        </p>
+                    </li>
+                    <li>
+                        <h3>如今-微信小程序</h3>
+                        <p>
+                            使用场景：使用了如今无人售货机的酒店、扫描设备二维码可以进入小程序、然后体验酒店各种服务功能。
+                            </br>
+                            </br>
+                            主要功能：可以购买设备内部的成人计生用品、和充电功能。
+                            </br>
+                            </br>
+                            主要技术：react、tarojs、 蓝牙通信技术、websocket、es6、node.js
+                        </p>
+                    </li>
+                    <li>
+                        <h3>香蕉说-代理端-h5微信公众号</h3>
+                        <p>
+                            使用场景：提供给和公司签约的代理
+                            </br>
+                            </br>
+                            主要功能：代理可以推广下级代理，推广商户，推广业务员，控制所有角色的所有功能开启状态，设置所有设备产生收益的分润，查看收益报表，查看设备运行，售卖状态，所有设备的激活操作，轻松管理下级代理，商户，业务员。
+                            </br>
+                            </br>
+                            主要技术：vue、vuex、echarts、es6、vue-cli3、cropperjs、wxjssdk、webpack
+                        </p>
+                    </li>
+                    <li>
+                        <h3>香蕉说-pc商户端</h3>
+                        <p>
+                            使用场景：和香蕉说代理签约的酒店
+                            </br>
+                            </br>
+                            主要功能：控制酒店业务的开启状态，查看产生的收益和提现产生的收益、添加店长和员工、绑定台卡、绑定刷脸设备、绑定小票打印机、绑定无人售货机
+                            </br>
+                            </br>
+                            主要技术：vue、vuex、echarts、es6、vue-cli2、cropperjs、element-ui、webpack
+                        </p>
+                    </li>
+                    <!-- <li>
+                        <h3>其他项目介绍</h3>
+                        <p>
+                            </br>
+                            香蕉说-商户-h5微信公众号
+                            </br>
+                            香蕉说-启点工厂小程序-工厂出厂设备使用小程序
+                            </br>
+                            香蕉说-收钱蛙小程序-美团、饿了么、外卖酒店返现。
+                            </br>
+                            香蕉说-支付宝刷脸小程序-刷脸支付业务
+                            </br>
+                            香蕉说-社交uniapp
+                            </br>
+                            乐盟-红包商城混合app开发
+                            </br>
+                            乐盟U品-红包商城台卡支付小程序
+                        </p>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- <div class="aboutme info-unit right-paragraph">
+                <h2 class="info-header"><i class="iconfont icon-flower"></i> <span class="info-title">自我评价</span></h2>
+                <hr>
+                <p>
+                    1.为人善良，有责任心
+                    </br>
+                    2.对新技术充满热情，愿意花时间，花精力，花金钱去提升自己的技术
+                    </br>
+                    3.有比较全面的前端技术栈
+                </p>
+            </div> -->
+        </div>
+    </div>
+</body>
 
-            var isPlay = false;
-            document.addEventListener('keyup', function(event) {
-                console.log('ssss');
-                if (!isPlay) {
-                    av.play();
-                    console.log('xxxx');
-                    isPlay = true;
-                }
-            });
-            function playAction() {
-                console.log('ssss');
-                if (!isPlay) {
-                    av.play();
-                    console.log('xxxx');
-                    isPlay = true;
-                }
-            }
-            $(function() {
-                var BgImg = function() {
-                    var bgimg = document.getElementById('bg-img');
-                    var bgindex = 1;
-                    changeImg();
-                    function changeImg() {
-                        setTimeout(() => {
-                            $('#bg-img').addClass('animated bounce');
-                            bgindex += 1;
-                            if (bgindex > 3) {
-                                bgindex = 1;
-                            }
-                            bgimg.src = `/images/bg${bgindex}.jpg`;
-                            changeImg();
-                        }, 5000);
-                    }
-                };
-
-                for (let obj of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14]) {
-                    imgiframe = 'img-item-w';
-                    $('#bg-box').append(`<div id='img-box${obj}' class="img-box">
-                    <img class="${imgiframe}" src="/images/bg1.jpg" alt="">
-                </div>`);
-                }
-
-                function animateImg() {
-                    setTimeout(() => {
-                        let index = Math.round(Math.random() * 14);
-                        // let index = Math.round(0.3);
-                        console.log(index);
-                        $(`#img-box${index}`).addClass('animated rotateIn');
-                        animateImg();
-                    }, 2000);
-                }
-                animateImg();
-                // BgImg();
-            });
-        </script>
-    </body>
 </html>
